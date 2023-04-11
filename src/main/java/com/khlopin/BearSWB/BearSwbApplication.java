@@ -16,11 +16,11 @@ public class BearSwbApplication {
 
 
 	public static void main(String[] args) {
-		try (Session session = MySessionFactory.getSessionFactory().openSession()) {
-			Transaction transaction = session.beginTransaction();
-			session.persist(Chat.builder().usersOfChat(new ArrayList<>()).build());
-			transaction.commit();
-		}
+//		try (Session session = MySessionFactory.getSessionFactory().openSession()) {
+//			Transaction transaction = session.beginTransaction();
+//			session.persist(Chat.builder().usersOfChat(new ArrayList<>()).build());
+//			transaction.commit();
+//		}
 
 		SpringApplication.run(BearSwbApplication.class, args);
 	}

@@ -1,14 +1,19 @@
 package com.khlopin.BearSWB.controllers;
 
 import com.khlopin.BearSWB.entity.User;
+import com.khlopin.BearSWB.services.ChatRepository;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/personalPage")
-@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET,RequestMethod.POST, RequestMethod.OPTIONS})
+@RequestMapping("/userPage")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET}, exposedHeaders = "Access-Control-Allow-Origin")
 public class UserPageController {
-@GetMapping
-    public void printUser(User user) {
 
+    @GetMapping("/{id}")
+    @CrossOrigin("*")
+    public User getUser(@PathVariable String id) {
+        return ChatRepository.findUserFromDbByID(Integer.parseInt(id));
     }
+
 }
+

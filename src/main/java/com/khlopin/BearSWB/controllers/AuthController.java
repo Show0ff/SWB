@@ -3,7 +3,6 @@ package com.khlopin.BearSWB.controllers;
 import com.google.gson.Gson;
 
 import com.khlopin.BearSWB.entity.Access;
-import com.khlopin.BearSWB.entity.User;
 import com.khlopin.BearSWB.services.LoginInAccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
