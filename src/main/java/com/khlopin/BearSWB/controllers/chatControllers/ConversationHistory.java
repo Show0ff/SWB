@@ -1,4 +1,4 @@
-package com.khlopin.BearSWB.controllers;
+package com.khlopin.BearSWB.controllers.chatControllers;
 
 
 import com.khlopin.BearSWB.entity.Message;

@@ -1,4 +1,4 @@
-package com.khlopin.BearSWB.controllers;
+package com.khlopin.BearSWB.controllers.userControllers;
 
 import com.khlopin.BearSWB.entity.User;
 import com.khlopin.BearSWB.services.ChatRepository;

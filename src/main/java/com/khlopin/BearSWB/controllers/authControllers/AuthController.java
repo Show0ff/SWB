@@ -1,4 +1,4 @@
-package com.khlopin.BearSWB.controllers;
+package com.khlopin.BearSWB.controllers.authControllers;
 
 import com.google.gson.Gson;
 

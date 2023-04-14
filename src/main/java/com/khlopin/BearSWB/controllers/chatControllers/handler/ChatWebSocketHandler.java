@@ -1,4 +1,4 @@
-package com.khlopin.BearSWB.controllers.handler;
+package com.khlopin.BearSWB.controllers.chatControllers.handler;
 
 
 

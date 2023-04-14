@@ -9,9 +9,12 @@ public class CreateAccountService {
 
     private final Gson gson = new Gson();
 
+    private final InitDefaultAvatarService initDefaultAvatarService = new InitDefaultAvatarService();
+
     public Access getAccessForCreateAccount(String dataFromFront) {
         User clientUser = gson.fromJson(dataFromFront, User.class);
         if (ChatRepository.findUserFromDbByLogin(clientUser.getLogin()) == null) {
+            clientUser.setAvatar(initDefaultAvatarService.initAvatar());
             ChatRepository.addUserInDB(clientUser);
             return Access.TRUE;
         }

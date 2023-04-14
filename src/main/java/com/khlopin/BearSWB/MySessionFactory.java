@@ -1,8 +1,6 @@
 package com.khlopin.BearSWB;
 
-import com.khlopin.BearSWB.entity.Chat;
-import com.khlopin.BearSWB.entity.Message;
-import com.khlopin.BearSWB.entity.User;
+import com.khlopin.BearSWB.entity.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -16,6 +14,8 @@ public class MySessionFactory {
             configuration.addAnnotatedClass(User.class);
             configuration.addAnnotatedClass(Message.class);
             configuration.addAnnotatedClass(Chat.class);
+            configuration.addAnnotatedClass(Post.class);
+            configuration.addAnnotatedClass(Wall.class);
             configuration.configure();
             return configuration.buildSessionFactory();
         }

@@ -1,7 +1,7 @@
-package com.khlopin.BearSWB.controllers;
+package com.khlopin.BearSWB.controllers.chatControllers;
 
 
-import com.khlopin.BearSWB.controllers.handler.ChatWebSocketHandler;
+import com.khlopin.BearSWB.controllers.chatControllers.handler.ChatWebSocketHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.WebSocketHandler;
