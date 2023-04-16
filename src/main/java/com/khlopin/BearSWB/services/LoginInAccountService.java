@@ -15,9 +15,10 @@ public class LoginInAccountService {
         User userFromDbByLogin = ChatRepository.findUserFromDbByLogin(clientUser.getLogin());
         System.out.println(userFromDbByLogin + " USER FROM DB" );
         Access access;
+        int hash = clientUser.getPassword().hashCode();
         if (userFromDbByLogin != null
                 && userFromDbByLogin.getLogin().equals(clientUser.getLogin())
-                && userFromDbByLogin.getPassword().equals(clientUser.getPassword())) {
+                && Integer.parseInt(userFromDbByLogin.getPassword()) == hash) {
 
             access = Access.TRUE;
         } else {

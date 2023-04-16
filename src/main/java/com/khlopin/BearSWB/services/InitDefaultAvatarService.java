@@ -10,7 +10,7 @@ public class InitDefaultAvatarService {
 
     @SneakyThrows
     public byte[] initAvatar() {
-        return Files.readAllBytes(Path.of("D:\\Projects\\BearSWB\\src\\main\\resources\\basicPhoto.jpg"));
+        return Files.readAllBytes(Path.of("src\\main\\resources\\basicPhoto.jpg"));
     }
 
 
