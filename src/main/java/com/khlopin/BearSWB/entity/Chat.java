@@ -17,9 +17,18 @@ import java.util.List;
 public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id = 1L;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "chat_id")
+    private Long id;
+
+    @ManyToMany(mappedBy = "chats", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<User> usersOfChat;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "message_id")
+    private List<PersonalMessage> messages;
+
+    public Chat(List<User> usersOfChat) {
+        this.usersOfChat = usersOfChat;
+    }
 }
+
+

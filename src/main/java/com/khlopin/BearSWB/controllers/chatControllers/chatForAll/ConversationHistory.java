@@ -1,8 +1,8 @@
-package com.khlopin.BearSWB.controllers.chatControllers;
+package com.khlopin.BearSWB.controllers.chatControllers.chatForAll;
 
 
-import com.khlopin.BearSWB.entity.Message;
-import com.khlopin.BearSWB.services.ChatRepository;
+import com.khlopin.BearSWB.entity.MessageForAll;
+import com.khlopin.BearSWB.services.repositories.ChatRepository;
 import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +12,14 @@ import java.util.List;
 public class ConversationHistory {
 
 
+    private final ChatRepository chatRepository = new ChatRepository();
+
+
    @GetMapping("/history")
    @CrossOrigin("*")
    @SneakyThrows
-    protected List<Message> sendHistory() {
-       return ChatRepository.getMessageList();
+    protected List<MessageForAll> sendHistory() {
+       return chatRepository.getMessageList();
     }
 
 

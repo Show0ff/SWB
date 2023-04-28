@@ -1,7 +1,7 @@
 package com.khlopin.BearSWB.controllers.userControllers;
 
 import com.khlopin.BearSWB.entity.User;
-import com.khlopin.BearSWB.services.ChatRepository;
+import com.khlopin.BearSWB.services.repositories.UserRepository;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,20 +17,22 @@ import java.io.IOException;
 
 public class AvatarController {
 
+    private final UserRepository userRepository = new UserRepository();
+
 
     @PostMapping("/{login}")
     public ResponseEntity<Void> uploadAvatar(@PathVariable String login,
                                              @RequestPart("file") MultipartFile file) throws IOException {
-        User user = ChatRepository.findUserFromDbByLogin(login);
+        User user = userRepository.getUserFromDbByLogin(login);
         user.setAvatar(file.getBytes());
-        ChatRepository.updateUser(user);
+        userRepository.updateUser(user);
         return ResponseEntity.ok().build();
     }
 
 
     @GetMapping("/{login}")
     public ResponseEntity<byte[]> getAvatar(@PathVariable String login) {
-        User user = ChatRepository.findUserFromDbByLogin(login);
+        User user = userRepository.getUserFromDbByLogin(login);
         byte[] avatar = user.getAvatar();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_JPEG);

@@ -12,10 +12,11 @@ public class MySessionFactory {
         try {
             Configuration configuration = new Configuration();
             configuration.addAnnotatedClass(User.class);
-            configuration.addAnnotatedClass(Message.class);
+            configuration.addAnnotatedClass(MessageForAll.class);
             configuration.addAnnotatedClass(Chat.class);
             configuration.addAnnotatedClass(Post.class);
             configuration.addAnnotatedClass(Wall.class);
+            configuration.addAnnotatedClass(PersonalMessage.class);
             configuration.configure();
             return configuration.buildSessionFactory();
         }
